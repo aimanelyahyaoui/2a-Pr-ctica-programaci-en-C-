@@ -34,6 +34,15 @@ void InitData() {
     }
 }
 
+// Funció per imprimir elements d'un rang específic d'un vector
+void PrintVectorElements(float vect[N], int start, int end, const char* name) {
+    printf("%s del %d al %d:\n", name, start, end);
+    for (int i = start; i <= end; i++) {
+        printf("%f ", vect[i]);
+    }
+    printf("\n");
+}
+
 // Funció per imprimir elements d'una fila específica de la matriu
 void PrintRowElements(float mat[N][N], int row, int from, int to) {
     printf("Elements de la fila %d, columnes %d a %d:\n", row, from, to);
@@ -43,43 +52,28 @@ void PrintRowElements(float mat[N][N], int row, int from, int to) {
     printf("\n");
 }
 
-// Funció per multiplicar un vector per un escalar
-void MultEscalar(float vect[N], float vec2[N], float alfa) {
-    for (int i = 0; i < N; i++) {
-        vec2[i] = alfa * vect[i];  // Multiplica cada element del vector pel valor escalar
-    }
-}
-
-// Funció per imprimir una part del vector
-void PrintVect(float vect[N], int from, int numel) {
-    for (int i = from; i < from + numel; i++) {
-        printf("%f ", vect[i]);  // Imprimeix cada element del vector a partir de la posició 'from'
-    }
-    printf("\n");  // Salta a la següent línia després d'imprimir
-}
-
 int main() {
-    float vec2[N];
-    float alfa = 2.0;  // Multiplicarem el vector per l'escalar 2.0
-
     // Inicialitzem les dades en matrius i vectors
     InitData();
 
-    // Comprovar i mostrar els elements de la fila 0, columnes 0 a 9
+    // Imprimir els elements 0 al 9 i 256 al 265 dels vectors V1, V2 i V3
+    printf("V1 del 0 al 9 i del 256 al 265:\n");
+    PrintVectorElements(V1, 0, 9, "V1");
+    PrintVectorElements(V1, 256, 265, "V1");
+
+    printf("V2 del 0 al 9 i del 256 al 265:\n");
+    PrintVectorElements(V2, 0, 9, "V2");
+    PrintVectorElements(V2, 256, 265, "V2");
+
+    printf("V3 del 0 al 9 i del 256 al 265:\n");
+    PrintVectorElements(V3, 0, 9, "V3");
+    PrintVectorElements(V3, 256, 265, "V3");
+
+    // Imprimir els elements 0 al 9 de les files 0 i 100 de la matriu Mat
+    printf("Mat fila 0 i fila 100 del 0 al 9:\n");
     PrintRowElements(Mat, 0, 0, 9);
-
-    // Comprovar i mostrar els elements de la fila N-1, columnes 0 a 9
-    PrintRowElements(Mat, N - 1, 0, 9);
-
-    // Multipliquem el vector V1 pel valor escalar
-    MultEscalar(V1, vec2, alfa);
-
-    // Imprimim els primers 10 elements del vector V1 i del vector resultant
-    printf("Vector V1 (primers 10 elements):\n");
-    PrintVect(V1, 0, 10);
-
-    printf("Vector resultant (primers 10 elements després de multiplicar per l'escalar):\n");
-    PrintVect(vec2, 0, 10);
+    PrintRowElements(Mat, 100, 0, 9);
 
     return 0;
 }
+
