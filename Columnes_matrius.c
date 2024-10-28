@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define N 100
+#define N 512
 
 float Mat[N][N];  // Matriu de mida N x N
 
