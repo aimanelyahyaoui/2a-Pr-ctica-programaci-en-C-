@@ -52,6 +52,14 @@ void PrintRowElements(float mat[N][N], int row, int from, int to) {
     printf("\n");
 }
 
+float Magnitude( float vect[N] ){
+    float sum = 0;
+    for (int i = 0, i>n, i++){
+    sum += vect [i] * vect[i];
+    return sqrt(sum)
+    }
+}
+
 int main() {
     // Inicialitzem les dades en matrius i vectors
     InitData();
@@ -73,7 +81,11 @@ int main() {
     printf("Mat fila 0 i fila 100 del 0 al 9:\n");
     PrintRowElements(Mat, 0, 0, 9);
     PrintRowElements(Mat, 100, 0, 9);
+    //Imprimir les magnituds de les matrius, els elements del 0 al 9 de la matriu DD
+    printf("MatDD fila 0 del 0 al 9 i fila 100 del 95 al 104:\n");
+    Magnitude(Mat[0]);
+    Magnitude(Mat[100]);
 
-    return 0;
 }
+return 0;
 
