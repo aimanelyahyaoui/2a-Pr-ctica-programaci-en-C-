@@ -1,37 +1,44 @@
 #include <stdio.h>
-#include <stdlib.h>
+#define N 512  // Definim N com 512, tal com indica la pràctica
 
-#define N 512
-
-float Mat[N][N];  // Matriu de mida N x N
-
-void InitData() {
-    int i, j;
-    srand(334411);
-
-    for (i = 0; i < N; i++) {
-        for (j = 0; j < N; j++) {
-            Mat[i][j] = (((i * j) % 3) ? -1 : 1) * (100.0 * (rand() / (1.0 * RAND_MAX)));
-        }
+// Funció per multiplicar un vector per un escalar
+void MultEscalar(float vect[N], float vec2[N], float alfa) {
+    for (int i = 0; i < N; i++) {
+        vec2[i] = alfa * vect[i];  // Multiplica cada element del vector pel valor escalar
     }
 }
 
-void PrintRowElements(float mat[N][N], int row, int from, int to) {
-    printf("Elements de la fila %d, columnes %d a %d:\n", row, from, to);
-    for (int i = from; i <= to; i++) {
-        printf("%f ", mat[row][i]);
+// Funció per inicialitzar el vector amb valors alternants
+void InitData(float vect[N]) {
+    for (int i = 0; i < N; i++) {
+        vect[i] = (i % 2 == 0) ? i : -i;  // Inicialitzem el vector amb valors positius i negatius
     }
-    printf("\n");
+}
+
+// Funció per imprimir una part del vector
+void PrintVect(float vect[N], int from, int numel) {
+    for (int i = from; i < from + numel; i++) {
+        printf("%f ", vect[i]);  // Imprimeix cada element del vector a partir de la posició 'from'
+    }
+    printf("\n");  // Salta a la següent línia després d'imprimir
 }
 
 int main() {
-    InitData();
+    float vect[N], vec2[N];
+    float alfa = 2.0;  // Multiplicarem el vector per l'escalar 2.0
 
-    // Comprovar i mostrar els elements de la fila 0, columnes 0 a 9
-    PrintRowElements(Mat, 0, 0, 9);
+    // Inicialitzem el vector amb valors positius i negatius alternants
+    InitData(vect);
 
-    // Comprovar i mostrar els elements de la fila 99, columnes 0 a 9 (fila N-1)
-    PrintRowElements(Mat, N - 1, 0, 9);
+    // Multipliquem el vector pel valor escalar
+    MultEscalar(vect, vec2, alfa);
+
+    // Imprimim els primers 10 elements del vector original i del vector resultant
+    printf("Vector original (primers 10 elements):\n");
+    PrintVect(vect, 0, 10);
+
+    printf("Vector resultat (primers 10 elements després de multiplicar per l'escalar):\n");
+    PrintVect(vec2, 0, 10);
 
     return 0;
 }
