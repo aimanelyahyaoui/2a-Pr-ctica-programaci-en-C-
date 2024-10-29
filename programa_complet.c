@@ -65,6 +65,45 @@ float Infininorm( float M[N][N] ) {
     }
     return suma_max;
 }
+//FUnció per calclar la Norma ú d'una matriu
+float Onenorm( float M[N][N] ) {
+    float suma_max  = 0.0;
+    for (int i = 0; i<N;i++){
+        float suma = 0.0;
+        for (int j = 0; j<N; j++){
+            suma += fabs (M[j][i]);
+            if(suma>=suma_max) {
+            suma_max = suma;
+            }
+        }
+    }
+    return suma_max;
+}
+float NormFrobenius( float M[N][N] ){
+    float suma = 0.0;
+    for (int i = 0; i<N; i++) {
+        for (int j = 0; j<N; j++) {
+            suma += M[i][j]*M[i][j];
+            }
+        }
+    return sqrt(suma);
+}
+
+int DiagonalDom( float M[N][N] ) {
+    for (int i = 0; i < N; i++) {
+        float element_diagonal = fabs(Mat[i][i]);
+        float sum = 0.0;
+        for (int j = 0; j < N; j++) {
+            if (i != j) {
+                sum += fabs(Mat[i][j]);
+            }
+        }
+        if(element_diagonal<=sum){
+            return 0;
+            }
+    return 1;
+    }
+}
 int main() {
     // Inicialitzem les dades en matrius i vectors
     InitData();
@@ -91,6 +130,22 @@ int main() {
     PrintRowElements(MatDD, 100, 90, 99);
     // Infininorma, norma ú, norma de Frobenious i si és o no diagonalment dominant de Mat
     printf("Infininorma de Mat = %.3f\n", Infininorm(Mat));
+    printf("Norma ú de Mat = %.3f\n", Onenorm(Mat));
+    printf("Norma de Frobenius de Mat = %.3f \n", NormFrobenius(Mat));
+    if(DiagonalDom (Mat)) {
+        printf("La matriu Mat és diagonal dominant \n");
+    } else {
+        printf("La matriu Mat no és diagonal dominant \n");
+    }
+    // Infininorma, norma ú, norma de Frobenious i si és o no diagonalment dominant de MatDD
+    printf("Infininorma de MatDD = %.3f\n", Infininorm(MatDD));
+    printf("Norma ú de MatDD = %.3f\n", Onenorm(MatDD));
+    printf("Norma de Frobenius de MatDD = %.3f \n", NormFrobenius(MatDD));
+    if(DiagonalDom (MatDD)) {
+        printf("La matriu MatDD és diagonal dominant \n"); //HHAURIA DE DONAR QUE SI QUE HO ÉS I DONA QUE NO
+    } else {
+        printf("La matriu MatDD no és diagonal dominant \n"); 
+    }
 }
 return 0;
 
