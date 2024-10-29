@@ -51,6 +51,20 @@ void PrintRowElements(float mat[N][N], int row, int from, int to) {
     }
     printf("\n");
 }
+//Funció per calcular la infi-norma d'una matriu
+float Infininorm( float M[N][N] ) {
+    float suma_max  = 0.0;
+    for (int i = 0; i<N;i++){
+        float suma = 0.0;
+        for (int j = 0; j<N; j++){
+            suma += fabs (M[i][j]);
+            if(suma>=suma_max) {
+            suma_max = suma;
+            }
+        }
+    }
+    return suma_max;
+}
 int main() {
     // Inicialitzem les dades en matrius i vectors
     InitData();
@@ -75,7 +89,8 @@ int main() {
     // Imprimir els elements 0 al 9 de la fila 0 i 90 a 99 de la fila 100 de la matriu MatDD
     PrintRowElements(MatDD, 0, 0, 9);
     PrintRowElements(MatDD, 100, 90, 99);
-
+    // Infininorma, norma ú, norma de Frobenious i si és o no diagonalment dominant de Mat
+    printf("Infininorma de Mat = %.3f\n", Infininorm(Mat));
 }
 return 0;
 
