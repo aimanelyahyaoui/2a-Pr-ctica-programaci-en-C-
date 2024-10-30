@@ -104,6 +104,20 @@ int DiagonalDom( float M[N][N] ) {
     return 1;
     }
 }
+float Scalar( float vect1[N], float vect2[N] ) {
+    float producte_escalar = 0.0;
+    for ( int i = 0; i<N ; i++) {
+        producte_escalar += vect1[i] * vect2[i];
+        }
+    return producte_escalar;
+}
+float Magnitude( float vect[N] ) {
+    float  magnitud = 0.0;
+    for (int i=0; i<N; i++) {
+        magnitud += vect [i]*vect[i];
+    }
+    return sqrt(magnitud);
+}
 int main() {
     // Inicialitzem les dades en matrius i vectors
     InitData();
@@ -146,6 +160,13 @@ int main() {
     } else {
         printf("La matriu MatDD no és diagonal dominant \n"); 
     }
+    //Càlcul de productes escalars
+    printf("Escalar <V1, V2>= %.3f \n ", Scalar( V1, V2 ));
+    printf("Escalar <V1, V3>= %.3f \n ", Scalar( V1, V3 ));
+    printf("Escalar <V2, V3>= %.3f \n ", Scalar( V2, V3 ));
+    //Càlcul de magnituds
+    printf("Magnitud V1, V2, V3 = %.2f %.2f %.2f\n", Magnitude(V1), Magnitude(V2), Magnitude(V3));
+    return 0;
 }
-return 0;
+
 
