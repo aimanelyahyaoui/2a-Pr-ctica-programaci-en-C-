@@ -118,6 +118,18 @@ float Magnitude( float vect[N] ) {
     }
     return sqrt(magnitud);
 }
+int Ortogonal( float vect1[N], float vect2[N] ) {
+    float suma = 0.0;
+    for (int i=0; i<N; i++) {
+        suma += vect1[i] * vect2[i];
+    }
+
+    if (suma == 0.0) {
+        return 1;
+    }else {
+        return 0;
+    }
+}
 int main() {
     // Inicialitzem les dades en matrius i vectors
     InitData();
@@ -166,6 +178,18 @@ int main() {
     printf("Escalar <V2, V3>= %.3f \n ", Scalar( V2, V3 ));
     //Càlcul de magnituds
     printf("Magnitud V1, V2, V3 = %.2f %.2f %.2f\n", Magnitude(V1), Magnitude(V2), Magnitude(V3));
+    //Ortogonals o no
+    if(Ortogonal (V1, V2)){
+        printf("V1 i V2 són ortogonals \n");
+    }
+    else if(Ortogonal (V1, V3)){
+        printf("V1 i V3 són ortogonals \n");
+    }
+    else if (Ortogonal (V3, V2)){
+        printf("V2 i V3 són ortogonals \n");
+    }else {
+        printf ("Cap dels vaectors són ortogonals entre ells \n");
+    }
     return 0;
 }
 
