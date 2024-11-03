@@ -91,11 +91,11 @@ float NormFrobenius( float M[N][N] ){
 
 int DiagonalDom( float M[N][N] ) {
     for (int i = 0; i < N; i++) {
-        float element_diagonal = fabs(Mat[i][i]);
+        float element_diagonal = fabs(M[i][i]);
         float sum = 0.0;
         for (int j = 0; j < N; j++) {
             if (i != j) {
-                sum += fabs(Mat[i][j]);
+                sum += fabs(M[i][j]);
             }
         }
         if(element_diagonal<=sum){
