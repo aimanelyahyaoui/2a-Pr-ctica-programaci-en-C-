@@ -77,7 +77,7 @@ float Magnitude(float vect[N]) {
     return sqrt(magnitud);
 }
 
-// 6. Ortogonals: determinar si dos vectors són ortogonals
+// 6. Ortogonals: determinar si dos vectors són ortogonals (no funciona)
 int Ortogonal(float vect1[N], float vect2[N]) {
     float suma = Scalar(vect1, vect2);
     return suma == 0.0;  // Retorna 1 si són ortogonals, 0 si no
@@ -130,7 +130,7 @@ float NormFrobenius(float M[N][N]) {
     return sqrt(suma);
 }
 
-// 11. Diagonal dominant: determinar si una matriu és o no diagonal dominant
+// 11. Diagonal dominant: determinar si una matriu és o no diagonal dominant (no funciona)
 int DiagonalDom(float M[N][N]) {
     for (int i = 0; i < N; i++) {
         float element_diagonal = fabs(M[i][i]);
@@ -220,8 +220,8 @@ int main() {
     printf("Magnitud de V1: %f\n", magnitude_V1);
 
     // Proves de la ortogonalitat
-    int are_orthogonal = Ortogonal(V1, V2);
-    printf("V1 i V2 són ortogonals: %d\n", are_orthogonal);
+    int ortogonal = Ortogonal(V1, V2);
+    printf("V1 i V2 són ortogonals: %d\n", ortogonal);
 
     // Proves de la projecció
     Projection(V1, V2, vectres);
@@ -241,8 +241,8 @@ int main() {
     printf("Norma de Frobenius de Mat: %f\n", frobenius_norm);
 
     // Proves de la diagonal dominant
-    int is_diagonal_dominant = DiagonalDom(MatDD);
-    printf("MatDD és diagonal dominant: %d\n", is_diagonal_dominant);
+    int diagonal_dominant = DiagonalDom(MatDD);
+    printf("MatDD és diagonal dominant: %d\n", diagonal_dominant);
 
     // Proves de la multiplicació matriu per vector
     Matriu_x_Vector(Mat, V1, vectres);
