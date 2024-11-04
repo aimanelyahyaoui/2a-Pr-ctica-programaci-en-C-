@@ -42,32 +42,39 @@ void PrintVectorElements(float vect[N], int start, int end, const char* name) {
     }
     printf("\n");
 }
-
 // Funció per imprimir elements d'una fila específica de la matriu
 void PrintRowElements(float mat[N][N], int row, int from, int to) {
     printf("Elements de la fila %d, columnes %d a %d:\n", row, from, to);
     for (int i = from; i <= to; i++) {
-        printf("%f ", mat[row][i]);
+	printf("%f ", mat[row][i]);
     }
     printf("\n");
 }
-// Multiplicació escalar: multiplicar un vector per un escalar
-void MultEscalar(float vect[N], float vectres[N], float alfa) {
+
+// Funció per multiplicar un vector per un escalar
+void MultEscalar(float vect[N], float vec2[N], float alfa) {
     for (int i = 0; i < N; i++) {
-        vectres[i] = alfa * vect[i];
+        vec2[i] = alfa * vect[i];  // Multiplica cada element del vector pel valor escalar
     }
+}
+// Funció per imprimir una part del vector
+void PrintVect(float vect[N], int from, int numel) {
+    for (int i = from; i < from + numel; i++) {
+        printf("%f ", vect[i]);  // Imprimeix cada element del vector a partir de la posició 'from'
+    }
+    printf("\n");  // Salta a la següent línia després d'imprimir
 }
 //Funció per calcular la infi-norma d'una matriu
 float Infininorm( float M[N][N] ) {
     float suma_max  = 0.0;
     for (int i = 0; i<N;i++){
-        float suma = 0.0;
-        for (int j = 0; j<N; j++){
-            suma += fabs (M[i][j]);
-            if(suma>=suma_max) {
-            suma_max = suma;
-            }
-        }
+	float suma = 0.0;
+	for (int j = 0; j<N; j++){
+	    suma += fabs (M[i][j]);
+	    if(suma>=suma_max) {
+	    suma_max = suma;
+	    }
+	}
     }
     return suma_max;
 }
@@ -88,52 +95,52 @@ float Onenorm( float M[N][N] ) {
 float NormFrobenius( float M[N][N] ){
     float suma = 0.0;
     for (int i = 0; i<N; i++) {
-        for (int j = 0; j<N; j++) {
-            suma += M[i][j]*M[i][j];
-            }
-        }
+	for (int j = 0; j<N; j++) {
+	    suma += M[i][j]*M[i][j];
+	    }
+	}
     return sqrt(suma);
 }
 
 int DiagonalDom( float M[N][N] ) {
     for (int i = 0; i < N; i++) {
-        float element_diagonal = fabs(M[i][i]);
+        float element_diagonal = fabs(Mat[i][i]);
         float sum = 0.0;
         for (int j = 0; j < N; j++) {
             if (i != j) {
-                sum += fabs(M[i][j]);
+                sum += fabs(Mat[i][j]);
             }
-        }
-        if(element_diagonal<=sum){
-            return 0;
-            }
+	}
+	if(element_diagonal<=sum){
+	    return 0;
+	    } 
     return 1;
     }
 }
 float Scalar( float vect1[N], float vect2[N] ) {
     float producte_escalar = 0.0;
     for ( int i = 0; i<N ; i++) {
-        producte_escalar += vect1[i] * vect2[i];
-        }
+	producte_escalar += vect1[i] * vect2[i];
+	}
     return producte_escalar;
 }
 float Magnitude( float vect[N] ) {
     float  magnitud = 0.0;
     for (int i=0; i<N; i++) {
-        magnitud += vect [i]*vect[i];
+	magnitud += vect [i]*vect[i];
     }
     return sqrt(magnitud);
 }
 int Ortogonal( float vect1[N], float vect2[N] ) {
     float suma = 0.0;
     for (int i=0; i<N; i++) {
-        suma += vect1[i] * vect2[i];
+	suma += vect1[i] * vect2[i];
     }
 
     if (suma == 0.0) {
-        return 1;
+	return 1;
     }else {
-        return 0;
+	return 0;
     }
 }
 // Projecció: calcular la projecció d’un vector sobre un altre
@@ -151,8 +158,9 @@ void Matriu_x_Vector(float M[N][N], float vect[N], float vectres[N]) {
         }
     }
 }
-
 int main() {
+    float vec2[N];
+    float alfa = 2.0;  // Multiplicarem el vector per l'escalar 2.0
     // Inicialitzem les dades en matrius i vectors
     InitData();
 
@@ -216,11 +224,12 @@ int main() {
     // Multiplicaci´po pvectpr amb escalar
     float vectres[N];
     MultEscalar(V3, vectres, 2.0);  // Multiplicació de V3 per 2.0
-    PrintVect(vectres, 0, 10); 
+    PrintVect(vectres, 0, 10);
+    PrintVect(vectres, 256, 10); 
     //Projecció de vectors
     Projection(V2, V3, vectres);
     printf("Projecció de V2 sobre V3: ");
-    PrintVect(vectres, 0, 10);
+    PrintVect(prod_escalarj, 0, 10);
     Projection(V1, V2, vectres);
     printf("Projecció de V1 sobre V2: ");
     PrintVect(vectres, 0, 10);
@@ -230,5 +239,3 @@ int main() {
     PrintVect(vectres, 0, 10);
     return 0;
 }
-
-
