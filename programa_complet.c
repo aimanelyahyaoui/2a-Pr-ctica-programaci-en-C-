@@ -51,6 +51,12 @@ void PrintRowElements(float mat[N][N], int row, int from, int to) {
     }
     printf("\n");
 }
+// Multiplicació escalar: multiplicar un vector per un escalar
+void MultEscalar(float vect[N], float vectres[N], float alfa) {
+    for (int i = 0; i < N; i++) {
+        vectres[i] = alfa * vect[i];
+    }
+}
 //Funció per calcular la infi-norma d'una matriu
 float Infininorm( float M[N][N] ) {
     float suma_max  = 0.0;
@@ -130,6 +136,22 @@ int Ortogonal( float vect1[N], float vect2[N] ) {
         return 0;
     }
 }
+// Projecció: calcular la projecció d’un vector sobre un altre
+void Projection(float vect1[N], float vect2[N], float vectres[N]) {
+    float prod_escalarj = Scalar(vect1, vect2) / Scalar(vect2, vect2);
+    MultEscalar(vect2, vectres, prod_escalarj);
+}
+
+// Multiplicació matriu per vector
+void Matriu_x_Vector(float M[N][N], float vect[N], float vectres[N]) {
+    for (int i = 0; i < N; i++) {
+        vectres[i] = 0.0;
+        for (int j = 0; j < N; j++) {
+            vectres[i] += M[i][j] * vect[j];
+        }
+    }
+}
+
 int main() {
     // Inicialitzem les dades en matrius i vectors
     InitData();
@@ -187,9 +209,25 @@ int main() {
     }
     else if (Ortogonal (V3, V2)){
         printf("V2 i V3 són ortogonals \n");
-    }else {
+    }
+    else {
         printf ("Cap dels vaectors són ortogonals entre ells \n");
     }
+    // Multiplicaci´po pvectpr amb escalar
+    float vectres[N];
+    MultEscalar(V3, vectres, 2.0);  // Multiplicació de V3 per 2.0
+    PrintVect(vectres, 0, 10); 
+    //Projecció de vectors
+    Projection(V2, V3, vectres);
+    printf("Projecció de V2 sobre V3: ");
+    PrintVect(vectres, 0, 10);
+    Projection(V1, V2, vectres);
+    printf("Projecció de V1 sobre V2: ");
+    PrintVect(vectres, 0, 10);
+    //Multiplicació de matriu per un vector
+    Matriu_x_Vector(Mat, V2, vectres);
+    printf("Resultat de Mat x V1: ");
+    PrintVect(vectres, 0, 10);
     return 0;
 }
 
