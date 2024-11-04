@@ -1,4 +1,4 @@
-Fort#include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 
@@ -77,7 +77,7 @@ float Magnitude(float vect[N]) {
     return sqrt(magnitud);
 }
 
-// 6. Ortogonals: determinar si dos vectors són ortogonals (no funciona)
+// 6. Ortogonals: determinar si dos vectors són ortogonals
 int Ortogonal( float vect1[N], float vect2[N] ) {
     float suma = 0.0;
     for (int i=0; i<N; i++) {
