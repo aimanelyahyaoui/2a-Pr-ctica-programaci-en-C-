@@ -158,42 +158,6 @@ void Matriu_x_Vector(float M[N][N], float vect[N], float vectres[N]) {
     }
 }
 
-// 13. Resoldre sistemes d’equacions lineals: mètode de Jacobi
-int Jacobi(float M[N][N], float vect[N], float vectres[N], unsigned iter) {
-    if (!DiagonalDom(M)) {
-        return 0;  // Retorna 0 si la matriu no és diagonal dominant
-    }
-
-    for (unsigned k = 0; k < iter; k++) {
-        float x_old[N];
-        for (int i = 0; i < N; i++) {
-            x_old[i] = vect[i];
-        }
-
-        for (int i = 0; i < N; i++) {
-            float sum = vect[i];
-            for (int j = 0; j < N; j++) {
-                if (i != j) {
-                    sum -= M[i][j] * x_old[j];
-                }
-            }
-            vect[i] = sum / M[i][i];
-        }
-
-        // Comprovar la convergència
-        float error = 0.0;
-        for (int i = 0; i < N; i++) {
-            error += fabs(vect[i] - x_old[i]);
-        }
-        if (error < 1e-5) {
-            break;  // Convergència
-        }
-    }
-    for (int i = 0; i < N; i++) {
-        vectres[i] = vect[i];
-    }
-    return 1;  // Retorna 1 si el mètode de Jacobi es pot aplicar
-}
 
 int main() {
     // Inicialitzem les dades en les matrius i vectors
