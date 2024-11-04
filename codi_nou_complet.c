@@ -86,8 +86,8 @@ int Ortogonal( float vect1[N], float vect2[N] ) {
 
 // 7. Projecció: calcular la projecció d’un vector sobre un altre
 void Projection(float vect1[N], float vect2[N], float vectres[N]) {
-    float scalar_proj = Scalar(vect1, vect2) / Scalar(vect2, vect2);
-    MultEscalar(vect2, vectres, scalar_proj);
+    float prod_escalarj = Scalar(vect1, vect2) / Scalar(vect2, vect2);
+    MultEscalar(vect2, vectres, prod_escalarj);
 }
 
 // 8. Infini-norma: calcular la infini-norma d’una matriu
@@ -177,8 +177,8 @@ int main() {
     PrintVect(vectres, 0, 10);      // Mostra el resultat
 
     // Proves del producte escalar
-    float scalar_product = Scalar(V1, V2);
-    printf("Producte escalar de V1 i V2: %f\n", scalar_product);
+    float prod_escalar = Scalar(V1, V2);
+    printf("Producte escalar de V1 i V2: %f\n", prod_escalar);
 
     // Proves de la magnitud
     float magnitude_V1 = Magnitude(V1);
@@ -214,14 +214,5 @@ int main() {
     printf("Resultat de Mat x V1: ");
     PrintVect(vectres, 0, 10);
 
-    // Proves del mètode de Jacobi
-    float vect_res[N];
-    if (Jacobi(MatDD, V1, vect_res, 1000)) {
-        printf("Solució del sistema d'equacions (Jacobi): ");
-        PrintVect(vect_res, 0, 10);
-    } else {
-        printf("El mètode de Jacobi no es pot aplicar.\n");
-    }
 
-    return 0;
 }
