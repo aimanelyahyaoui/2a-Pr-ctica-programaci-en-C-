@@ -157,6 +157,47 @@ void Matriu_x_Vector(float M[N][N], float vect[N], float vectres[N]) {
             vectres[i] += M[i][j] * vect[j];
         }
     }
+/ Funció que implementa el mètode de Jacobi
+int Jacobi(float M[N][N], float vect[N], float vectres[N], unsigned iter) {
+    if (!DiagonalDom(M)) {
+        return 0;  // Retorna 0 si la matriu no és diagonal dominant
+    }
+
+    float tolerancia = 1e-6;  // Límite de tolerància per a la convergència
+    float diferencia;
+    for (unsigned k = 0; k < iter; k++) {
+        diferencia = 0.0;
+
+        // Càlcul de la nova solució
+        for (int i = 0; i < N; i++) {
+            vectres[i] = vect[i];  // Comencem amb la solució anterior
+            float sum = 0.0;
+            for (int j = 0; j < N; j++) {
+                if (i != j) {
+                    sum += M[i][j] * vect[j];
+                }
+            }
+            vectres[i] = (vect[i] + (sum / M[i][i])); // Actualització de la solució
+        }
+
+        // Comprovem si la diferència és menor que la tolerància
+        for (int i = 0; i < N; i++) {
+            diferencia += fabs(vectres[i] - vect[i]);
+        }
+
+        // Si la diferència és menor que la tolerància, hem convergit
+        if (diferencia < tolerancia) {
+            break;
+        }
+
+        // Actualitzar la solució anterior
+        for (int i = 0; i < N; i++) {
+            vect[i] = vectres[i];
+        }
+    }
+
+    return 1;  // Retorna 1 si el mètode s'ha aplicat amb èxit
+}
 }
 int main() {
     float vec2[N];
