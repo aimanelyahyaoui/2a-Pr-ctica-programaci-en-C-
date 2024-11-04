@@ -178,9 +178,9 @@ int main() {
     PrintVectorElements(V3, 256, 265, "V3");
 
     // Imprimir els elements 0 al 9 de les files 0 i 100 de la matriu Mat
-    printf("MatDD fila 0 del 0 al 9 i fila 100 del 95 al 104:\n");
+    printf("Mat fila 0 del 0 al 9 i fila 100 del 0 al 9:\n");
     PrintRowElements(Mat, 0, 0, 9);
-    PrintRowElements(Mat, 100, 90, 99);
+    PrintRowElements(Mat, 100, 0, 9);
     // Imprimir els elements 0 al 9 de la fila 0 i 90 a 99 de la fila 100 de la matriu MatDD
     PrintRowElements(MatDD, 0, 0, 9);
     PrintRowElements(MatDD, 100, 90, 99);
