@@ -145,8 +145,8 @@ int Ortogonal( float vect1[N], float vect2[N] ) {
 }
 // Projecció: calcular la projecció d’un vector sobre un altre
 void Projection(float vect1[N], float vect2[N], float vectres[N]) {
-    float prod_escalarj = Scalar(vect1, vect2) / Scalar(vect2, vect2);
-    MultEscalar(vect2, vectres, prod_escalarj);
+    float prod_escalar = Scalar(vect1, vect2) / Scalar(vect2, vect2);
+    MultEscalar(vect2, vectres, prod_escalar);
 }
 
 // Multiplicació matriu per vector
