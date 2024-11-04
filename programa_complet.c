@@ -229,7 +229,7 @@ int main() {
     //Projecció de vectors
     Projection(V2, V3, vectres);
     printf("Projecció de V2 sobre V3: ");
-    PrintVect(prod_escalarj, 0, 10);
+    PrintVect(vectres, 0, 10);
     Projection(V1, V2, vectres);
     printf("Projecció de V1 sobre V2: ");
     PrintVect(vectres, 0, 10);
