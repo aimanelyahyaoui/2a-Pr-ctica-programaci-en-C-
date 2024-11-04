@@ -203,6 +203,10 @@ int main() {
     float vec2[N];
     float alfa = 2.0;  // Multiplicarem el vector per l'escalar 2.0
     // Inicialitzem les dades en matrius i vectors
+    float A[N][N]; // Matriu de coeficients
+    float b[N];    // Vector de termes independents
+    float x[N];    // Solució inicial
+    float xres[N]; // Solució resultant
     InitData();
 
     // Imprimir els elements 0 al 9 i 256 al 265 dels vectors V1, V2 i V3
@@ -278,5 +282,16 @@ int main() {
     Matriu_x_Vector(Mat, V2, vectres);
     printf("Resultat de Mat x V2: ");
     PrintVect(vectres, 0, 10);
+
+	    if (Jacobi(A, x, xres, iterations)) {
+        printf("Solució trobada:\n");
+        for (int i = 0; i < N; i++) {
+            printf("x[%d] = %f\n", i, xres[i]);
+        }
+    } else {
+        printf("El mètode de Jacobi no es pot aplicar.\n");
+    }
+
     return 0;
+}    return 0;
 }
