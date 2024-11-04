@@ -163,7 +163,19 @@ void Matriu_x_Vector(float M[N][N], float vect[N], float vectres[N]) {
 int main() {
     // Inicialitzem les dades en les matrius i vectors
     InitData();
+    printf("V1 del 0 al 9 i del 256 al 265:\n");
+    PrintVectorElements(V1, 0, 9, "V1");
+    PrintVectorElements(V1, 256, 265, "V1");
 
+    printf("V2 del 0 al 9 i del 256 al 265:\n");
+    PrintVectorElements(V2, 0, 9, "V2");
+    PrintVectorElements(V2, 256, 265, "V2");
+
+    printf("V3 del 0 al 9 i del 256 al 265:\n");
+    PrintVectorElements(V3, 0, 9, "V3");
+    PrintVectorElements(V3, 256, 265, "V3");
+
+    
 
 
 
