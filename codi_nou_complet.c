@@ -164,56 +164,7 @@ int main() {
     // Inicialitzem les dades en les matrius i vectors
     InitData();
 
-    // Proves de la funció PrintVect
-    PrintVect(V1, 0, 10);  // Mostra els primers 10 elements de V1
-    PrintVect(V2, 0, 10);  // Mostra els primers 10 elements de V2
 
-    // Proves de la funció PrintRow
-    PrintRow(Mat, 0, 0, 10);  // Mostra els primers 10 elements de la fila 0 de Mat
-    PrintRow(MatDD, 0, 0, 10); // Mostra els primers 10 elements de la fila 0 de MatDD
-
-    // Proves de la multiplicació escalar
-    float vectres[N];
-    MultEscalar(V1, vectres, 2.0);  // Multiplicació de V1 per 2.0
-    PrintVect(vectres, 0, 10);      // Mostra el resultat
-
-    // Proves del producte escalar
-    float prod_escalar = Scalar(V1, V2);
-    printf("Producte escalar de V1 i V2: %f\n", prod_escalar);
-
-    // Proves de la magnitud
-    float magnitude_V1 = Magnitude(V1);
-    printf("Magnitud de V1: %f\n", magnitude_V1);
-
-    // Proves de la ortogonalitat
-    int ortogonal = Ortogonal(V1, V2);
-    printf("V1 i V2 són ortogonals: %d\n", ortogonal);
-
-    // Proves de la projecció
-    Projection(V1, V2, vectres);
-    printf("Projecció de V1 sobre V2: ");
-    PrintVect(vectres, 0, 10);
-
-    // Proves de la infini-norma
-    float infini_norm = Infininorm(Mat);
-    printf("Infini-norma de Mat: %f\n", infini_norm);
-
-    // Proves de la norma-ú
-    float one_norm = Onenorm(Mat);
-    printf("Norma-ú de Mat: %f\n", one_norm);
-
-    // Proves de la norma de Frobenius
-    float frobenius_norm = NormFrobenius(Mat);
-    printf("Norma de Frobenius de Mat: %f\n", frobenius_norm);
-
-    // Proves de la diagonal dominant
-    int diagonal_dominant = DiagonalDom(MatDD);
-    printf("MatDD és diagonal dominant: %d\n", diagonal_dominant);
-
-    // Proves de la multiplicació matriu per vector
-    Matriu_x_Vector(Mat, V1, vectres);
-    printf("Resultat de Mat x V1: ");
-    PrintVect(vectres, 0, 10);
 
 
 }
