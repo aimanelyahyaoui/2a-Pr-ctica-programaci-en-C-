@@ -1,4 +1,4 @@
-#include <stdio.h>
+Fort#include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 
@@ -78,10 +78,11 @@ float Magnitude(float vect[N]) {
 }
 
 // 6. Ortogonals: determinar si dos vectors són ortogonals (no funciona)
-int Ortogonal(float vect1[N], float vect2[N]) {
-    float suma = Scalar(vect1, vect2);
-    return suma == 0.0;  // Retorna 1 si són ortogonals, 0 si no
-}
+int Ortogonal( float vect1[N], float vect2[N] ) {
+    float suma = 0.0;
+    for (int i=0; i<N; i++) {
+        suma += vect1[i] * vect2[i];
+    }
 
 // 7. Projecció: calcular la projecció d’un vector sobre un altre
 void Projection(float vect1[N], float vect2[N], float vectres[N]) {
