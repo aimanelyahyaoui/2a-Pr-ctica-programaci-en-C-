@@ -183,7 +183,7 @@ int main() {
     PrintRowElements(Mat, 100, 0, 9);
     // Imprimir els elements 0 al 9 de la fila 0 i 90 a 99 de la fila 100 de la matriu MatDD
     PrintRowElements(MatDD, 0, 0, 9);
-    PrintRowElements(MatDD, 100, 90, 99);
+    PrintRowElements(MatDD, 100, 95, 104);
     // Infininorma, norma ú, norma de Frobenious i si és o no diagonalment dominant de Mat
     printf("Infininorma de Mat = %.3f\n", Infininorm(Mat));
     printf("Norma ú de Mat = %.3f\n", Onenorm(Mat));
