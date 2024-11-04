@@ -83,6 +83,7 @@ int Ortogonal( float vect1[N], float vect2[N] ) {
     for (int i=0; i<N; i++) {
         suma += vect1[i] * vect2[i];
     }
+}
 
 // 7. Projecció: calcular la projecció d’un vector sobre un altre
 void Projection(float vect1[N], float vect2[N], float vectres[N]) {
