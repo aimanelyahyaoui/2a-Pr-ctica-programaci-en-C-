@@ -157,7 +157,7 @@ void Matriu_x_Vector(float M[N][N], float vect[N], float vectres[N]) {
             vectres[i] += M[i][j] * vect[j];
         }
     }
-/ Funció que implementa el mètode de Jacobi
+// Funció que implementa el mètode de Jacobi
 int Jacobi(float M[N][N], float vect[N], float vectres[N], unsigned iter) {
     if (!DiagonalDom(M)) {
         return 0;  // Retorna 0 si la matriu no és diagonal dominant
