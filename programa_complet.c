@@ -114,8 +114,8 @@ int DiagonalDom( float M[N][N] ) {
 	if(element_diagonal<=sum){
 	    return 0;
 	    } 
-    return 1;
     }
+return 1;
 }
 float Scalar( float vect1[N], float vect2[N] ) {
     float producte_escalar = 0.0;
@@ -235,7 +235,7 @@ int main() {
     PrintVect(vectres, 0, 10);
     //Multiplicació de matriu per un vector
     Matriu_x_Vector(Mat, V2, vectres);
-    printf("Resultat de Mat x V1: ");
+    printf("Resultat de Mat x V2: ");
     PrintVect(vectres, 0, 10);
     return 0;
 }
