@@ -108,7 +108,7 @@ int DiagonalDom( float M[N][N] ) {
         float sum = 0.0;
         for (int j = 0; j < N; j++) {
             if (i != j) {
-                sum += fabs(Mat[i][j]);
+                sum += fabs(M[i][j]);
             }
 	}
 	if(element_diagonal<=sum){
