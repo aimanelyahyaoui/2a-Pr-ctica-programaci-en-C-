@@ -200,7 +200,7 @@ int Jacobi(float M[N][N], float vect[N], float vectres[N], unsigned iter) {
     }
 
     return 1; 
-
+}
 
 int main() {
     float vec2[N];
