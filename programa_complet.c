@@ -229,9 +229,11 @@ int main() {
     printf("Mat fila 0 del 0 al 9 i fila 100 del 0 al 9:\n");
     PrintRowElements(Mat, 0, 0, 9);
     PrintRowElements(Mat, 100, 0, 9);
+	
     // Imprimir els elements 0 al 9 de la fila 0 i 90 a 99 de la fila 100 de la matriu MatDD
     PrintRowElements(MatDD, 0, 0, 9);
     PrintRowElements(MatDD, 100, 95, 104);
+	
     // Infininorma, norma Ãº, norma de Frobenious i si Ã©s o no diagonalment dominant de Mat
     printf("Infininorma de Mat = %.3f\n", Infininorm(Mat));
     printf("Norma Ãº de Mat = %.3f\n", Onenorm(Mat));
@@ -241,6 +243,7 @@ int main() {
     } else {
         printf("La matriu Mat no és diagonal dominant \n");
     }
+	
     // Infininorma, norma Ãº, norma de Frobenious i si Ã©s o no diagonalment dominant de MatDD
     printf("Infininorma de MatDD = %.3f\n", Infininorm(MatDD));
     printf("Norma ú de MatDD = %.3f\n", Onenorm(MatDD));
@@ -250,12 +253,15 @@ int main() {
     } else {
         printf("La matriu MatDD no és diagonal dominant \n"); 
     }
+	
     //CÃ lcul de productes escalars
     printf("Escalar <V1, V2>= %.3f \n ", Scalar( V1, V2 ));
     printf("Escalar <V1, V3>= %.3f \n ", Scalar( V1, V3 ));
     printf("Escalar <V2, V3>= %.3f \n ", Scalar( V2, V3 ));
+	
     //CÃ lcul de magnituds
     printf("Magnitud V1, V2, V3 = %.2f %.2f %.2f\n", Magnitude(V1), Magnitude(V2), Magnitude(V3));
+	
     //Ortogonals o no
     if(Ortogonal (V1, V2)){
         printf("V1 i V2 són ortogonals \n");
@@ -269,11 +275,13 @@ int main() {
     else {
         printf ("Cap dels vaectors són ortogonals entre ells \n");
     }
+	
     // Multiplicació pvectpr amb escalar
     float vectres[N];
-    MultEscalar(V3, vectres, 2.0);  // MultiplicaciÃ³ de V3 per 2.0
+    MultEscalar(V3, vectres, 2.0); 
     PrintVect(vectres, 0, 10);
     PrintVect(vectres, 256, 10); 
+	
     //Projecció de vectors
     Projection(V2, V3, vectres);
     printf("ProjecciÃ³ de V2 sobre V3: ");
@@ -281,10 +289,12 @@ int main() {
     Projection(V1, V2, vectres);
     printf("ProjecciÃ³ de V1 sobre V2: ");
     PrintVect(vectres, 0, 10);
+	
     //Multiplicació de matriu per un vector
     Matriu_x_Vector(Mat, V2, vectres);
     printf("Resultat de Mat x V2: ");
     PrintVect(vectres, 0, 10);
+	
     // Mètode Jacobi
     unsigned iter = 1;
     Jacobi( Mat, V3, vectres, iter);
