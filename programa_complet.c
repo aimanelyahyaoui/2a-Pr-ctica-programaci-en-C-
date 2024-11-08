@@ -236,7 +236,7 @@ int main() {
 	
     // Infininorma, norma Ãº, norma de Frobenious i si Ã©s o no diagonalment dominant de Mat
     printf("Infininorma de Mat = %.3f\n", Infininorm(Mat));
-    printf("Norma Ãº de Mat = %.3f\n", Onenorm(Mat));
+    printf("Norma ú de Mat = %.3f\n", Onenorm(Mat));
     printf("Norma de Frobenius de Mat = %.3f \n", NormFrobenius(Mat));
     if(DiagonalDom (Mat)) {
         printf("La matriu Mat és diagonal dominant \n");
@@ -284,10 +284,10 @@ int main() {
 	
     //Projecció de vectors
     Projection(V2, V3, vectres);
-    printf("ProjecciÃ³ de V2 sobre V3: ");
+    printf("Projecció de V2 sobre V3: ");
     PrintVect(vectres, 0, 10);
     Projection(V1, V2, vectres);
-    printf("ProjecciÃ³ de V1 sobre V2: ");
+    printf("Projecció de V1 sobre V2: ");
     PrintVect(vectres, 0, 10);
 	
     //Multiplicació de matriu per un vector
